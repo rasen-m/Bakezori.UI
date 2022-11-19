@@ -1,0 +1,59 @@
+.button {
+    -unity-font-style: bold;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button > .button-icon {
+    height: 24px;
+    width: 24px;
+    margin-left: 8px;
+}
+
+.button > .button-label {
+    flex-grow: 1;
+}
+
+.button.button-primary {
+    background-color: rgba(13, 110, 253, 255);
+}
+
+.button.button-secondary {
+    background-color: rgba(108, 117, 125, 255);
+}
+
+.button.button-success {
+    background-color: rgb(25, 135, 84);
+}
+
+.button.button-danger {
+    background-color: rgba(220, 54, 68, 255);
+}
+
+.button.button-warning {
+    background-color: rgba(255, 193, 9, 255);
+}
+
+.button.button-info {
+    background-color: rgba(13, 202, 240, 255);
+}
+
+.button.button-light {
+    background-color: rgba(248, 249, 250, 255);
+    color: rgba(0, 0, 0, 255);
+}
+
+.button.button-dark {
+    background-color: rgba(33, 36, 42, 255);
+}

@@ -1,0 +1,31 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.bakezori.ui/Runtime/NotificationModal/NotificationModal.uss?fileID=7433441132597879392&amp;guid=4aad92dc394534e1cb0aa15d5779fa85&amp;type=3#NotificationModal" />
+    <ui:VisualElement name="MainContainer" class="notification-modal-main-container transition" style="display: flex; visibility: visible;">
+        <ui:VisualElement name="Background" class="notification-modal-background" />
+        <ui:VisualElement name="Dialog" class="panel notification-modal-dialog transition">
+            <ui:VisualElement name="CloseButtonWrapper" class="notification-modal-close-button-wrapper">
+                <ui:Button display-tooltip-when-elided="true" name="CloseButton" class="notification-modal-close-button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Header" class="notification-modal-header">
+                <ui:Label display-tooltip-when-elided="true" name="TitleLabel" text="Title" class="h5" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Body" class="notification-modal-body">
+                <ui:Label text="Label" display-tooltip-when-elided="true" name="BodyLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Footer" class="notification-modal-footer">
+                <ui:Button display-tooltip-when-elided="true" name="YesButton" class="notification-modal-button notification-modal-yes-button button-success button">
+                    <ui:VisualElement name="Icon" class="button-icon" />
+                    <ui:Label text="Yes" display-tooltip-when-elided="true" name="Label" class="button-label" />
+                </ui:Button>
+                <ui:Button display-tooltip-when-elided="true" name="NoButton" class="notification-modal-button button notification-modal-no-button button-danger">
+                    <ui:VisualElement name="Icon" class="button-icon" />
+                    <ui:Label text="No" display-tooltip-when-elided="true" name="Label" class="button-label" />
+                </ui:Button>
+                <ui:Button display-tooltip-when-elided="true" name="OkayButton" class="notification-modal-button button notification-modal-okay-button button-info">
+                    <ui:VisualElement name="Icon" class="button-icon" />
+                    <ui:Label text="Okay" display-tooltip-when-elided="true" name="Label" class="button-label" />
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

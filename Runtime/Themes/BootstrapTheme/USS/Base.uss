@@ -1,0 +1,47 @@
+.main-container {
+    width: 100%;
+    height: 100%;
+}
+
+.panel {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.fade-hide {
+    transition-property: opacity;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out-cubic;
+
+    opacity: 0;
+}
+
+.fade-show {
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out-cubic;
+
+    opacity: 1;
+}
+
+.scale-hide {
+    transition-property: scale;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-cubic;
+
+    scale: 0 0;
+}
+
+.scale-show {
+    transition-property: scale;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out-back;
+
+    scale: 1 1;
+}

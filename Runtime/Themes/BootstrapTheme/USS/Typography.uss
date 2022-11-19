@@ -1,0 +1,29 @@
+Label.h1 {
+    font-size: 72px;
+    -unity-font-style: bold;
+}
+
+Label.h2 {
+    font-size: 48px;
+    -unity-font-style: bold;
+}
+
+Label.h3 {
+    font-size: 36px;
+    -unity-font-style: bold;
+}
+
+Label.h4 {
+    font-size: 24px;
+    -unity-font-style: bold;
+}
+
+Label.h5 {
+    font-size: 20px;
+    -unity-font-style: bold;
+}
+
+Label.h6 {
+    font-size: 16px;
+    -unity-font-style: bold;
+}
