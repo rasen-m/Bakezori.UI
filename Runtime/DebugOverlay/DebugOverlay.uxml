@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.bakezori.ui/Runtime/DebugOverlay/DebugOverlay.uss?fileID=7433441132597879392&amp;guid=f3ebfe63fa83544b0bb7ae3c5621421e&amp;type=3#DebugOverlay" />
+    <ui:VisualElement name="MainContainer" class="main-container" style="flex-direction: row;">
+        <ui:ScrollView name="DebugLog" style="flex-grow: 1; -unity-font-style: bold;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,5 +1,5 @@
 {
-    "name": "com.bakezori.ui.Editor",
+    "name": "Bakezori.UI.Editor",
     "rootNamespace": "Bakezori.UI",
     "references": [],
     "includePlatforms": [],

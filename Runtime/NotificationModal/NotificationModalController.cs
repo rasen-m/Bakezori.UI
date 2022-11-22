@@ -1,6 +1,6 @@
 using System;
 using UnityEngine.UIElements;
-using Bakezori.Essentials.Managers;
+using Bakezori.Essentials.Core;
 using Bakezori.Essentials.Notification;
 using Bakezori.Essentials.Utility;
 
@@ -36,7 +36,7 @@ namespace Bakezori.UI
             this.okayButton = this.rootVisualElement.Q<Button>("OkayButton");
 
             /// Self subscription.
-            GameManager.NotificationManager.SetNotificationController(this);
+            GameManager.GetManager<NotificationManager>().SetNotificationController(this);
         }
 
         public void SetDefaultSettings(NotificationSettings notificationSettings)

@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 using NaughtyAttributes;
 using Bakezori.Essentials.Collections.Serializable;
-using Bakezori.Essentials.Managers;
+using Bakezori.Essentials.Core;
 
 namespace Bakezori.UI
 {
@@ -15,7 +15,9 @@ namespace Bakezori.UI
         [BoxGroup("Modals"), SerializeField] private NotificationModalController notificationModalController;
         [Tooltip("Only one screen can appear at a time.")]
         [BoxGroup("Modals"), SerializeField] List<ScreenController> screenControllers = new List<ScreenController>();
+
         [BoxGroup("References"), SerializeField] private UIDocument uiDocument;
+        [BoxGroup("References"), SerializeField] private DebugOverlayController debugOverlayController;
 
         private VisualElement rootVisualElement;
         private string activeScreenId = string.Empty;
@@ -29,6 +31,7 @@ namespace Bakezori.UI
             this.rootVisualElement = this.uiDocument.rootVisualElement;
 
             this.notificationModalController.Initialize(this);
+            this.debugOverlayController.Initialize(this);
 
             foreach (var screenController in this.screenControllers)
             {
