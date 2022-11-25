@@ -9,8 +9,8 @@ namespace Bakezori.UI
 {
     public abstract class ModalController : MonoBehaviour
     {
-        [Tooltip("Delay to give transition a chance to complete.")]
-        [SerializeField] protected float DisplayNoneDelay = 0.3f;
+        // [Tooltip("Delay to give transition a chance to complete.")]
+        // [SerializeField] protected float DisplayNoneDelay = 0.3f;
 
         public Action<string> OnShow;
         public Action<string> OnHide;
@@ -41,6 +41,7 @@ namespace Bakezori.UI
             this.uiController = uiController;
 
             this.rootVisualElement = this.uiController.RootVisualElement.Q(RootVisualElementId);
+            this.rootVisualElement.style.display = DisplayStyle.Flex;
             this.backgroundVisualElement = this.rootVisualElement.Q("Background");
             this.dialogVisualElement = this.rootVisualElement.Q("Dialog");
             this.id = this.rootVisualElement.name;
@@ -85,7 +86,7 @@ namespace Bakezori.UI
                 if (isBusy)
                 {
                     this.isBusy = true;
-                    this.rootVisualElement.style.display = DisplayStyle.Flex;
+                    // this.rootVisualElement.style.display = DisplayStyle.Flex;
                     this.backgroundVisualElement.RemoveFromClassList(this.ussFadeHide);
                     this.backgroundVisualElement.AddToClassList(this.ussFadeShow);
                     this.dialogVisualElement.RemoveFromClassList(this.ussScaleHide);
@@ -97,11 +98,11 @@ namespace Bakezori.UI
                     this.backgroundVisualElement.AddToClassList(this.ussFadeHide);
                     this.dialogVisualElement.RemoveFromClassList(this.ussScaleShow);
                     this.dialogVisualElement.AddToClassList(this.ussScaleHide);
-                    StartCoroutine(CoroutineUtility.ExecuteAfterCoroutine(DisplayNoneDelay, () =>
-                    {
-                        this.rootVisualElement.style.display = DisplayStyle.None;
-                        this.isBusy = false;
-                    }));
+                    // StartCoroutine(CoroutineUtility.ExecuteAfterCoroutine(DisplayNoneDelay, () =>
+                    // {
+                    // this.rootVisualElement.style.display = DisplayStyle.None;
+                    this.isBusy = false;
+                    // }));
                 }
             }
         }
