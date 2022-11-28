@@ -1,9 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UIElements;
-using NaughtyAttributes;
-using Bakezori.Essentials.Utility;
-using Bakezori.Essentials.Notification;
+using Sirenix.OdinInspector;
 
 namespace Bakezori.UI
 {

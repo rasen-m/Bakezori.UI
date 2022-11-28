@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
-using NaughtyAttributes;
-using Bakezori.Essentials.Collections.Serializable;
+using Sirenix.OdinInspector;
 using Bakezori.Essentials.Core;
 
 namespace Bakezori.UI
