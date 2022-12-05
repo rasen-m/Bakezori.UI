@@ -14,23 +14,26 @@ namespace Bakezori.UI
         public Action<string> OnHide;
 
         [Tooltip("String ID from the UXML for this menu panel/screen.")]
-        [ReadOnly, SerializeField] protected string id;
-        [ReadOnly, SerializeField] protected bool isBusy;
+        [ReadOnly, SerializeField] private string id;
+        [ReadOnly, SerializeField] private bool isBusy;
 
-        [BoxGroup("USS"), SerializeField] protected string ussFadeShow = "fade-show";
-        [BoxGroup("USS"), SerializeField] protected string ussFadeHide = "fade-hide";
-        [BoxGroup("USS"), SerializeField] protected string ussScaleShow = "scale-show";
-        [BoxGroup("USS"), SerializeField] protected string ussScaleHide = "scale-hide";
+        [BoxGroup("USS"), SerializeField] private string ussFadeShow = "fade-show";
+        [BoxGroup("USS"), SerializeField] private string ussFadeHide = "fade-hide";
+        [BoxGroup("USS"), SerializeField] private string ussScaleShow = "scale-show";
+        [BoxGroup("USS"), SerializeField] private string ussScaleHide = "scale-hide";
 
-        protected UiController uiController;
-        protected VisualElement rootVisualElement;
-        protected VisualElement backgroundVisualElement;
-        protected VisualElement dialogVisualElement;
+        private UiController uiController;
+        private VisualElement backgroundVisualElement;
+        private VisualElement dialogVisualElement;
 
-        public string Id { get => this.id; }
-        public bool IsVisible { get => this.isBusy; }
-        public bool IsFree { get => !this.isBusy; }
-        public bool IsBusy { get => this.isBusy; }
+        public string Id => this.id;
+        public bool IsVisible => this.isBusy;
+        public bool IsFree => !this.isBusy;
+        public bool IsBusy => this.isBusy;
+        public bool IsHideDialogOnClicked { get; set; }
+
+        protected VisualElement RootVisualElement { get; set; }
+        protected Action OnHideCallback { get; set; }
 
         public abstract string RootVisualElementId { get; }
 
@@ -38,11 +41,21 @@ namespace Bakezori.UI
         {
             this.uiController = uiController;
 
-            this.rootVisualElement = this.uiController.RootVisualElement.Q(RootVisualElementId);
-            this.rootVisualElement.style.display = DisplayStyle.Flex;
-            this.backgroundVisualElement = this.rootVisualElement.Q("Background");
-            this.dialogVisualElement = this.rootVisualElement.Q("Dialog");
-            this.id = this.rootVisualElement.name;
+            RootVisualElement = this.uiController.RootVisualElement.Q(RootVisualElementId);
+            RootVisualElement.style.display = DisplayStyle.Flex;
+            this.backgroundVisualElement = RootVisualElement.Q("Background");
+            this.dialogVisualElement = RootVisualElement.Q("Dialog");
+            this.id = RootVisualElement.name;
+
+            this.dialogVisualElement.RegisterCallback<ClickEvent>(e => 
+            {
+                e.StopPropagation();
+
+                if (IsHideDialogOnClicked)
+                {
+                    TryHide();
+                }
+            });
 
             SetIsBusy(false, true);
         }
@@ -69,6 +82,7 @@ namespace Bakezori.UI
             {
                 SetIsBusy(false);
                 OnHide?.Invoke(this.id);
+                OnHideCallback?.Invoke();
                 callback?.Invoke();
 
                 return true;
